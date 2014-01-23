@@ -1,0 +1,10 @@
+import socket 
+import sys      
+s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+host = '127.0.0.1'
+port = 4475
+s.connect((host, port))
+
+print "message from server::",s.recv(10)
+#s.send("hi")
+s.close()

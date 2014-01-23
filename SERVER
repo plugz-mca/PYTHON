@@ -1,0 +1,16 @@
+import socket
+import sys
+import io
+s = socket.socket(socket.AF_INET,socket.SOCK_STREAM) 
+host = '127.0.0.1'
+port = 4475
+s.bind((host, port)) 
+s.listen(5)
+while True:
+	c, addr = s.accept() 
+	print 'Got connection from', addr
+	print ' enter msg to client:'
+	inp=sys.stdin.readline()
+	c.send(inp)
+	#print c.recv(10)
+c.close()

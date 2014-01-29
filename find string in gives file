@@ -1,0 +1,25 @@
+import io
+import sys
+import re
+from collections import Counter
+num_sentence=num_para=ave_word=total_words=count=0
+content=""" """
+#igword=nword=[]
+input_word=content1=''
+file_obj=open('paragraph.txt','r')
+content=file_obj.read()
+num_word=len(content.split())
+print 'number of words in file', num_word
+content.strip('.')
+num_sentence=len(content.split('.'))
+print 'number of sentences in file:',num_sentence
+avg_word=num_word/num_sentence
+print 'average number of words',avg_word
+print 'number of paragraph:',len(content.split("\n\n"))
+content1=content.split(' ')
+															#print content1
+input_word=raw_input("enter your word:\n")
+for word in content1:
+	if word==input_word:
+		count+=1
+print input_word,"occurs",count,"times in given file"

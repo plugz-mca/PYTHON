@@ -1,0 +1,23 @@
+import io
+import sys
+import re
+from collections import Counter
+num_sentence=num_para=ave_word=total_words=count=0
+content=""" """
+#igword=nword=[]
+input_word=content1=''
+file_obj=open('paragraph.txt','r')                        # READ THE TEXT FILE
+content=file_obj.read()
+num_word=len(content.split())                             #SPLIT THE FILE CONTENT BY SPACE
+print 'number of words in file', num_word                
+content.strip('.')                                         #CODE TO CALCULATE NUMBER OF SETENCES BY PERIOD(.)
+num_sentence=len(content.split('.'))
+print 'number of sentences in file:',num_sentence
+avg_word=num_word/num_sentence
+print 'average number of words',avg_word                   #CODE TO AVERAGE NUMBER OF WORDS IN SENTENCE
+print 'number of paragraph:',len(content.split("\n\n"))    #CODE TO CALCULATE PARAGRAPH
+content1=content.split(' ')
+#print content1
+#input_word=raw_input("enter your word:\n")
+words=re.findall(r'\w+',open('paragraph.txt').read().lower())   #CALCULATE REPEATED WORDS
+print(Counter(words).most_common(10))
